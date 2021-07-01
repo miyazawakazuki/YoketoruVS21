@@ -40,6 +40,7 @@ namespace YoketoruVS21
             this.clearLabel = new System.Windows.Forms.Label();
             this.titleButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tempLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -106,18 +107,20 @@ namespace YoketoruVS21
             // gameOverLabel
             // 
             this.gameOverLabel.AutoSize = true;
-            this.gameOverLabel.Location = new System.Drawing.Point(97, 169);
+            this.gameOverLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gameOverLabel.Location = new System.Drawing.Point(319, 169);
             this.gameOverLabel.Name = "gameOverLabel";
-            this.gameOverLabel.Size = new System.Drawing.Size(107, 28);
+            this.gameOverLabel.Size = new System.Drawing.Size(146, 37);
             this.gameOverLabel.TabIndex = 6;
             this.gameOverLabel.Text = "Game over";
             // 
             // clearLabel
             // 
             this.clearLabel.AutoSize = true;
-            this.clearLabel.Location = new System.Drawing.Point(619, 169);
+            this.clearLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clearLabel.Location = new System.Drawing.Point(353, 169);
             this.clearLabel.Name = "clearLabel";
-            this.clearLabel.Size = new System.Drawing.Size(56, 28);
+            this.clearLabel.Size = new System.Drawing.Size(78, 37);
             this.clearLabel.TabIndex = 7;
             this.clearLabel.Text = "Clear";
             // 
@@ -125,17 +128,28 @@ namespace YoketoruVS21
             // 
             this.titleButton.BackColor = System.Drawing.Color.Silver;
             this.titleButton.Font = new System.Drawing.Font("Yu Gothic UI", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.titleButton.Location = new System.Drawing.Point(335, 268);
+            this.titleButton.Location = new System.Drawing.Point(278, 234);
             this.titleButton.Name = "titleButton";
             this.titleButton.Size = new System.Drawing.Size(221, 70);
             this.titleButton.TabIndex = 8;
             this.titleButton.Text = "タイトル";
             this.titleButton.UseVisualStyleBackColor = false;
+            this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tempLabel
+            // 
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Location = new System.Drawing.Point(53, 126);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(32, 28);
+            this.tempLabel.TabIndex = 9;
+            this.tempLabel.Text = "★";
+            this.tempLabel.Visible = false;
             // 
             // Form1
             // 
@@ -143,6 +157,7 @@ namespace YoketoruVS21
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.titleButton);
             this.Controls.Add(this.clearLabel);
             this.Controls.Add(this.gameOverLabel);
@@ -172,6 +187,7 @@ namespace YoketoruVS21
         private System.Windows.Forms.Label clearLabel;
         private System.Windows.Forms.Button titleButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label tempLabel;
     }
 }
 

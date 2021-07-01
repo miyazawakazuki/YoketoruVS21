@@ -15,6 +15,23 @@ namespace YoketoruVS21
     {
         const bool isDebug = true;
 
+        const int PlayerMax = 1;
+        const int EnemyMax = 3;
+        const int ItemMax = 3;
+        const int ChrMax = PlayerMax + EnemyMax + ItemMax;
+
+        Label[] chrs = new Label[ChrMax];
+
+        const int PlayerIndex = 0;
+        const int EnemyIndex = PlayerMax;
+        const int ItemIndex = EnemyIndex + EnemyMax;
+
+        const string PlayerText = "('ω')";
+        const string EnemyText = "◇";
+        const string ItemText = "★";
+
+        static Random rand = new Random();
+
         enum State
         {
             None=-1,//無効
@@ -32,6 +49,26 @@ namespace YoketoruVS21
         public Form1()
         {
             InitializeComponent();
+
+            for (int i = 0; i < ChrMax; i++)
+            {
+                chrs[i]= new Label();
+                chrs[i].AutoSize = true;
+                if(i==PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if(i<ItemIndex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                chrs[i].Font = tempLabel.Font;
+                Controls.Add(chrs[i]);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -52,6 +89,12 @@ namespace YoketoruVS21
             {
                 initProc();
             }
+
+            if (currentState == State.Game)
+            {
+                UpdateGame();
+            }
+
 
         }
 
@@ -77,7 +120,13 @@ namespace YoketoruVS21
                     startButton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
-                    
+
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
+
                     break;
 
                 case State.Gameover:
@@ -96,9 +145,21 @@ namespace YoketoruVS21
             }
         }
 
+        void UpdateGame()
+        {
+            Point mp = PointToClient(MousePosition);
+
+            //TODO: mpがプレイヤーラベルの中心に設定
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
             nextState = State.Game;
+        }
+
+        private void titleButton_Click(object sender, EventArgs e)
+        {
+            nextState = State.Title;
         }
     }
 }
