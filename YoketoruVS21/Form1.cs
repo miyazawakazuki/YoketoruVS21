@@ -150,6 +150,8 @@ namespace YoketoruVS21
             Point mp = PointToClient(MousePosition);
 
             //TODO: mpがプレイヤーラベルの中心に設定
+
+
         }
 
         private void startButton_Click(object sender, EventArgs e)
