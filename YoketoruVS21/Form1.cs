@@ -21,6 +21,7 @@ namespace YoketoruVS21
         const int EnemyMax = 3;
         const int ItemMax = 3;
         const int ChrMax = PlayerMax + EnemyMax + ItemMax;
+        const int StartTime = 100;
 
         Label[] chrs = new Label[ChrMax];
         int[] vx = new int[ChrMax];
@@ -49,6 +50,9 @@ namespace YoketoruVS21
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+
+        int itemCount = 0;
+        int time = 0;
 
         public Form1()
         {
@@ -133,6 +137,9 @@ namespace YoketoruVS21
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                     }
 
+                    itemCount = ItemMax;
+                    time = StartTime + 1;
+
                     break;
 
                 case State.Gameover:
@@ -153,6 +160,13 @@ namespace YoketoruVS21
 
         void UpdateGame()
         {
+            time--;
+            timeLabel.Text = "Time " + time;
+            if(time<=0)
+            {
+                nextState = State.Gameover;
+            }
+
             Point mp = PointToClient(MousePosition);
 
             //TODO: mpがプレイヤーラベルの中心に設定
@@ -161,6 +175,8 @@ namespace YoketoruVS21
 
             for (int i=EnemyIndex;i<ChrMax;i++)
             {
+                if (!chrs[i].Visible) continue;
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
 
@@ -197,6 +213,16 @@ namespace YoketoruVS21
                     {
                         //アイテム
                         chrs[i].Visible = false;
+                        itemCount--;
+                        if(itemCount<=0)
+                        {
+                            nextState = State.Clear;
+                        }
+                        leftLabel.Text = "★: " + itemCount;
+
+                       // vx[i] = 0;
+                       //vy[i] = 0;
+                       //chrs[i].Left = 1000;
                     }
                 }
             }
