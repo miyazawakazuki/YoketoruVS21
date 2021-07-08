@@ -187,7 +187,17 @@ namespace YoketoruVS21
                     &&(mp.Y>=chrs[i].Top)
                     &&(mp.Y<chrs[i].Bottom))
                 {
-                    MessageBox.Show("当たった");
+                   //MessageBox.Show("当たった");
+                   //敵か？
+                   if(i<ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                   else
+                    {
+                        //アイテム
+                        chrs[i].Visible = false;
+                    }
                 }
             }
 
