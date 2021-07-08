@@ -91,9 +91,9 @@ namespace YoketoruVS21
             this.leftLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.leftLabel.Location = new System.Drawing.Point(668, 31);
             this.leftLabel.Name = "leftLabel";
-            this.leftLabel.Size = new System.Drawing.Size(47, 28);
+            this.leftLabel.Size = new System.Drawing.Size(58, 28);
             this.leftLabel.TabIndex = 4;
-            this.leftLabel.Text = "★:3";
+            this.leftLabel.Text = "★:10";
             // 
             // hiLabel
             // 
