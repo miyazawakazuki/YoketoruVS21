@@ -91,9 +91,9 @@ namespace YoketoruVS21
             this.leftLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.leftLabel.Location = new System.Drawing.Point(668, 31);
             this.leftLabel.Name = "leftLabel";
-            this.leftLabel.Size = new System.Drawing.Size(58, 28);
+            this.leftLabel.Size = new System.Drawing.Size(47, 28);
             this.leftLabel.TabIndex = 4;
-            this.leftLabel.Text = "★:10";
+            this.leftLabel.Text = "★:3";
             // 
             // hiLabel
             // 
@@ -118,7 +118,7 @@ namespace YoketoruVS21
             // 
             this.clearLabel.AutoSize = true;
             this.clearLabel.Font = new System.Drawing.Font("Yu Gothic UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clearLabel.Location = new System.Drawing.Point(353, 169);
+            this.clearLabel.Location = new System.Drawing.Point(350, 126);
             this.clearLabel.Name = "clearLabel";
             this.clearLabel.Size = new System.Drawing.Size(78, 37);
             this.clearLabel.TabIndex = 7;

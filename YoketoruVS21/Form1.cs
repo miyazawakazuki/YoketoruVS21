@@ -53,6 +53,7 @@ namespace YoketoruVS21
 
         int itemCount = 0;
         int time = 0;
+        int hiscore = 0;
 
         public Form1()
         {
@@ -135,6 +136,7 @@ namespace YoketoruVS21
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                         vx[i] = rand.Next(-SpeedMax, SpeedMax + 1);
                         vy[i] = rand.Next(-SpeedMax, SpeedMax + 1);
+                        chrs[i].Visible = true;
                     }
 
                     itemCount = ItemMax;
@@ -152,6 +154,12 @@ namespace YoketoruVS21
                     // MessageBox.Show("Clear");
                     clearLabel.Visible = true;
                     titleButton.Visible = true;
+                    hiLabel.Visible = true;
+                    if(time>hiscore)
+                    {
+                        hiscore = time;
+                        hiLabel.Text = "HighScre " + hiscore;
+                    }
 
                     break;
 
